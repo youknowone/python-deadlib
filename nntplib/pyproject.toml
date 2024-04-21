@@ -6,7 +6,7 @@ keywords = ["stdlib"]
 authors = [
     { name = "Python Devleopers", email = "python-deadlib@youknowone.org" }
 ]
-readme = "Doc/nntplib.rst"
+readme = "README.rst"
 license = {name = "PSF", file = "LICENSE"}
 classifiers = [
     "License :: OSI Approved :: Python Software Foundation License",

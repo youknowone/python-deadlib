@@ -1,12 +1,12 @@
 [project]
 name = "standard-asynchat"
-version = "{version}"
+version = "3.5.10"
 description = "Standard library asynchat redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [
     { name = "Python Devleopers", email = "python-deadlib@youknowone.org" }
 ]
-readme = "Doc/asynchat.rst"
+readme = "README.rst"
 license = {name = "PSF", file = "LICENSE"}
 classifiers = [
     "License :: OSI Approved :: Python Software Foundation License",

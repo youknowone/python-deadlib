@@ -1,3 +1,6 @@
+.DS_Store
 .envrc
 *.pyc
 __pycache__
+*/dist
+*/*.egg-info

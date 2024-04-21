@@ -116,7 +116,7 @@ def update(name, version):
         shutil.copy(
             f"{CPYTHON_SRC}/Lib/test/test_{name}.py", f"{name}/tests/test_{name}.py"
         )
-        shutil.copy(f"{CPYTHON_SRC}/Doc/library/{name}.rst", f"{name}/README.rst")
+        shutil.copy(f"{CPYTHON_SRC}/Doc/library/{name}.rst", f"{name}/Doc/{name}.rst")
 
         for src, dst in ADDITIONAL_RESOURCES.get(name, []):
             shutil.copy(f"{CPYTHON_SRC}/{src}", f"{name}/{dst}")
