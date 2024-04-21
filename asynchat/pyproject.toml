@@ -1,6 +1,6 @@
 [project]
 name = "standard-asynchat"
-version = "3.8.19"
+version = "3.9.19"
 description = "Standard library asynchat redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [

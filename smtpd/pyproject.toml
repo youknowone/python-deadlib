@@ -1,6 +1,6 @@
 [project]
 name = "standard-smtpd"
-version = "3.8.19"
+version = "3.9.19"
 description = "Standard library smtpd redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [
