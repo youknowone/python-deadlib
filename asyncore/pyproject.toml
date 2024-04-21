@@ -1,6 +1,6 @@
 [project]
 name = "standard-asyncore"
-version = "3.5.10"
+version = "3.6.15"
 description = "Standard library asyncore redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [
