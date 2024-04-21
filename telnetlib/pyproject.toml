@@ -1,6 +1,6 @@
 [project]
 name = "standard-telnetlib"
-version = "3.10.14"
+version = "3.11.9"
 description = "Standard library telnetlib redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [

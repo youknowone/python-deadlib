@@ -10,8 +10,8 @@
 
 **Source code:** :source:`Lib/asynchat.py`
 
-.. deprecated:: 3.6
-   :mod:`asynchat` will be removed in Python 3.12
+.. deprecated-removed:: 3.6 3.12
+   The :mod:`asynchat` module is deprecated
    (see :pep:`PEP 594 <594#asynchat>` for details).
    Please use :mod:`asyncio` instead.
 
@@ -34,6 +34,7 @@ Typically an :class:`asyncore.dispatcher` server channel generates new
 :class:`asynchat.async_chat` channel objects as it receives incoming
 connection requests.
 
+.. include:: ../includes/wasm-notavail.rst
 
 .. class:: async_chat()
 

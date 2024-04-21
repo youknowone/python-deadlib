@@ -7,7 +7,7 @@
 
 **Source code:** :source:`Lib/mailcap.py`
 
-.. deprecated:: 3.11
+.. deprecated-removed:: 3.11 3.13
    The :mod:`mailcap` module is deprecated
    (see :pep:`PEP 594 <594#mailcap>` for details).
    The :mod:`mimetypes` module provides an alternative.
@@ -60,7 +60,7 @@ standard.  However, mailcap files are supported on most Unix systems.
    use) to determine whether or not the mailcap line applies.  :func:`findmatch`
    will automatically check such conditions and skip the entry if the check fails.
 
-   .. versionchanged:: 3.10.8
+   .. versionchanged:: 3.11
 
       To prevent security issues with shell metacharacters (symbols that have
       special effects in a shell command line), ``findmatch`` will refuse

@@ -1,6 +1,6 @@
 [project]
 name = "standard-mailcap"
-version = "3.10.14"
+version = "3.11.9"
 description = "Standard library mailcap redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [

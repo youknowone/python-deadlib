@@ -16,10 +16,11 @@
    single: crypt(3)
    pair: cipher; DES
 
-.. deprecated:: 3.11
+.. deprecated-removed:: 3.11 3.13
    The :mod:`crypt` module is deprecated
    (see :pep:`PEP 594 <594#crypt>` for details and alternatives).
    The :mod:`hashlib` module is a potential replacement for certain use cases.
+   The `passlib <https://pypi.org/project/passlib/>`_ package can replace all use cases of this module.
 
 --------------
 
@@ -36,7 +37,9 @@ the :manpage:`crypt(3)` routine in the running system.  Therefore, any
 extensions available on the current implementation will also  be available on
 this module.
 
-.. availability:: Unix. Not available on VxWorks.
+.. availability:: Unix, not VxWorks.
+
+.. include:: ../includes/wasm-notavail.rst
 
 Hashing Methods
 ---------------

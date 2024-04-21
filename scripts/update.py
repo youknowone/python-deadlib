@@ -30,7 +30,8 @@ ALL_NAMES = [
 
 ADDITIONAL_RESOURCES = {
     "nntplib": [
-        ("Lib/test/keycert3.pem", "tests/"),
+        # ("Lib/test/keycert3.pem", "tests/"),  # 3.10
+        ("Lib/test/certdata/keycert3.pem", "tests/certdata/"),  # 3.11
     ],
 }
 
@@ -42,7 +43,7 @@ LAST_RELEASES = {
     "3.9": "3.9.19",
     "3.10": "3.10.14",
     "3.11": "3.11.9",
-    "3.12": "3.12.3",
+    "3.12": "3.12.2",
 }
 
 
@@ -120,6 +121,8 @@ def update(name, version):
         shutil.copy(f"{CPYTHON_SRC}/Doc/library/{name}.rst", f"{name}/Doc/{name}.rst")
 
         for src, dst in ADDITIONAL_RESOURCES.get(name, []):
+            if dst.endswith("/"):
+                os.makedirs(f"{name}/{dst}", exist_ok=True)
             shutil.copy(f"{CPYTHON_SRC}/{src}", f"{name}/{dst}")
     except Exception:
         remove_package(name)
