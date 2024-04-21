@@ -35,7 +35,7 @@ SMTPServer Objects
 
 
 .. class:: SMTPServer(localaddr, remoteaddr, data_size_limit=33554432,\
-                      map=None, enable_SMTPUTF8=False, decode_data=True)
+                      map=None, enable_SMTPUTF8=False, decode_data=False)
 
    Create a new :class:`SMTPServer` object, which binds to local address
    *localaddr*.  It will treat *remoteaddr* as an upstream SMTP relayer.  Both
@@ -52,20 +52,19 @@ SMTPServer Objects
    global socket map is used.
 
    *enable_SMTPUTF8* determines whether the ``SMTPUTF8`` extension (as defined
-   in :RFC:`6531`) should be enabled.  The default is ``False``.  If set to
-   ``True``, *decode_data* must be ``False`` (otherwise an error is raised).
+   in :RFC:`6531`) should be enabled.  The default is ``False``.
    When ``True``, ``SMTPUTF8`` is accepted as a parameter to the ``MAIL``
    command and when present is passed to :meth:`process_message` in the
-   ``kwargs['mail_options']`` list.
+   ``kwargs['mail_options']`` list.  *decode_data* and *enable_SMTPUTF8*
+   cannot be set to ``True`` at the same time.
 
    *decode_data* specifies whether the data portion of the SMTP transaction
-   should be decoded using UTF-8.  The default is ``True`` for backward
-   compatibility reasons, but will change to ``False`` in Python 3.6; specify
-   the keyword value explicitly to avoid the :exc:`DeprecationWarning`.  When
-   *decode_data* is set to ``False`` the server advertises the ``8BITMIME``
+   should be decoded using UTF-8.  When *decode_data* is ``False`` (the
+   default), the server advertises the ``8BITMIME``
    extension (:rfc:`6152`), accepts the ``BODY=8BITMIME`` parameter to
    the ``MAIL`` command, and when present passes it to :meth:`process_message`
-   in the ``kwargs['mail_options']`` list.
+   in the ``kwargs['mail_options']`` list. *decode_data* and *enable_SMTPUTF8*
+   cannot be set to ``True`` at the same time.
 
    .. method:: process_message(peer, mailfrom, rcpttos, data, **kwargs)
 
@@ -82,9 +81,8 @@ SMTPServer Objects
       will be a bytes object.
 
       *kwargs* is a dictionary containing additional information. It is empty
-      unless at least one of ``decode_data=False`` or ``enable_SMTPUTF8=True``
-      was given as an init parameter, in which case it contains the following
-      keys:
+      if ``decode_data=True`` was given as an init argument, otherwise
+      it contains the following keys:
 
           *mail_options*:
              a list of all received parameters to the ``MAIL``
@@ -115,9 +113,12 @@ SMTPServer Objects
       *localaddr* and *remoteaddr* may now contain IPv6 addresses.
 
    .. versionadded:: 3.5
-      the *decode_data* and *enable_SMTPUTF8* constructor arguments, and the
-      *kwargs* argument to :meth:`process_message` when one or more of these is
-      specified.
+      The *decode_data* and *enable_SMTPUTF8* constructor parameters, and the
+      *kwargs* parameter to :meth:`process_message` when *decode_data* is
+      ``False``.
+
+   .. versionchanged:: 3.6
+      *decode_data* is now ``False`` by default.
 
 
 DebuggingServer Objects
@@ -157,7 +158,7 @@ SMTPChannel Objects
 -------------------
 
 .. class:: SMTPChannel(server, conn, addr, data_size_limit=33554432,\
-                       map=None, enable_SMTPUTF8=False, decode_data=True)
+                       map=None, enable_SMTPUTF8=False, decode_data=False)
 
    Create a new :class:`SMTPChannel` object which manages the communication
    between the server and a single SMTP client.
@@ -169,22 +170,25 @@ SMTPChannel Objects
    limit.
 
    *enable_SMTPUTF8* determines whether the ``SMTPUTF8`` extension (as defined
-   in :RFC:`6531`) should be enabled.  The default is ``False``.  A
-   :exc:`ValueError` is raised if both *enable_SMTPUTF8* and *decode_data* are
-   set to ``True`` at the same time.
+   in :RFC:`6531`) should be enabled.  The default is ``False``.
+   *decode_data* and *enable_SMTPUTF8* cannot be set to ``True`` at the same
+   time.
 
    A dictionary can be specified in *map* to avoid using a global socket map.
 
    *decode_data* specifies whether the data portion of the SMTP transaction
-   should be decoded using UTF-8.  The default is ``True`` for backward
-   compatibility reasons, but will change to ``False`` in Python 3.6.  Specify
-   the keyword value explicitly to avoid the :exc:`DeprecationWarning`.
+   should be decoded using UTF-8.  The default is ``False``.
+   *decode_data* and *enable_SMTPUTF8* cannot be set to ``True`` at the same
+   time.
 
    To use a custom SMTPChannel implementation you need to override the
    :attr:`SMTPServer.channel_class` of your :class:`SMTPServer`.
 
    .. versionchanged:: 3.5
-      the *decode_data* and *enable_SMTPUTF8* arguments were added.
+      The *decode_data* and *enable_SMTPUTF8* parameters were added.
+
+   .. versionchanged:: 3.6
+      *decode_data* is now ``False`` by default.
 
    The :class:`SMTPChannel` has the following instance variables:
 
