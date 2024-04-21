@@ -11,6 +11,25 @@ pip install standard-{name}  # Don't forget to add `standard-` prefix!
 pip install standard-uu  # e.g. `uu` can be installed by standard-uu
 ```
 
+- [aifc](https://pypi.org/project/standard-aifc/)
+- [asynchat](https://pypi.org/project/standard-asynchat/)
+- [asyncore](https://pypi.org/project/standard-asyncore/)
+- [cgi](https://pypi.org/project/standard-cgi/)
+- [cgitb](https://pypi.org/project/standard-cgitb/)
+- [chunk](https://pypi.org/project/standard-chunk/)
+- [crypt](https://pypi.org/project/standard-crypt/)
+- [imghdr](https://pypi.org/project/standard-imghdr/)
+- [mailcap](https://pypi.org/project/standard-mailcap/)
+- [nntplib](https://pypi.org/project/standard-nntplib/)
+- [pipes](https://pypi.org/project/standard-pipes/)
+- [smtpd](https://pypi.org/project/standard-smtpd/)
+- [sndhdr](https://pypi.org/project/standard-sndhdr/)
+- [sunau](https://pypi.org/project/standard-sunau/)
+- [telnetlib](https://pypi.org/project/standard-telnetlib/)
+- [uu](https://pypi.org/project/standard-uu/)
+- [xdrlib](https://pypi.org/project/standard-xdrlib/)
+
+
 ## Contribution guideline
 
 Please do *NOT* submit any new features or any compatibility work.
