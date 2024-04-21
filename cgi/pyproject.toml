@@ -1,6 +1,6 @@
 [project]
 name = "standard-cgi"
-version = "3.11.9"
+version = "3.12.2"
 description = "Standard library cgi redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [

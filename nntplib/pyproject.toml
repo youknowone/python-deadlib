@@ -1,6 +1,6 @@
 [project]
 name = "standard-nntplib"
-version = "3.11.9"
+version = "3.12.2"
 description = "Standard library nntplib redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [

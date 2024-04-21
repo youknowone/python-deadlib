@@ -6,8 +6,8 @@ CPYTHON_SRC = os.environ["CPYTHON_SRC"]
 
 ALL_NAMES = [
     "aifc",
-    "asynchat",
-    "asyncore",
+    # "asynchat",  # removed in 3.12
+    # "asyncore",  # removed in 3.12
     "cgi",
     "cgitb",
     "chunk",
@@ -19,7 +19,7 @@ ALL_NAMES = [
     # "nis",  # cmodule
     # "ossaudiodev",  # cmodule
     "pipes",
-    "smtpd",
+    # "smtpd",  # removed in 3.12
     "sndhdr",
     # "spwd",  # cmodule
     "sunau",
@@ -89,9 +89,9 @@ def update(name, version):
 
     if has_py == has_dir:
         if has_py:
-            raise ValueError(f"{name} not found in cpython source")
-        else:
             raise ValueError(f"both {name} and {name}.py found in cpython source")
+        else:
+            raise ValueError(f"neither {name} found in cpython source")
 
     update_pyproject(name, version)
 
@@ -185,7 +185,12 @@ if __name__ == "__main__":
 
     if module_name == "ALL":
         for name in ALL_NAMES:
-            action(name, version)
+            try:
+                action(name, version)
+            except ValueError as e:
+                if 'neither' in e.args[0]:
+                    continue
+                raise
     else:
         action(module_name, version)
         run_test(module_name, version)

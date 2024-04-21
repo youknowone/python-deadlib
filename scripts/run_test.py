@@ -8,7 +8,7 @@ if name == "ALL":
 else:
     names = [name]
 
-for name in ALL_NAMES:
+for name in names:
     if name == "chunk":
         continue
     run_test(name, version)

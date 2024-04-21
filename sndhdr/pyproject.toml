@@ -1,6 +1,6 @@
 [project]
 name = "standard-sndhdr"
-version = "3.11.9"
+version = "3.12.2"
 description = "Standard library sndhdr redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [
