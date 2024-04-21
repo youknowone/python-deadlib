@@ -14,7 +14,7 @@ ALL_NAMES = [
     "crypt",
     "imghdr",
     "mailcap",
-    "msilib",
+    # "msilib",  # cmodule _msi
     "nntplib",
     # "nis",  # cmodule
     # "ossaudiodev",  # cmodule
@@ -108,14 +108,15 @@ def update(name, version):
             # shutil.copy(f"{CPYTHON_SRC}/Lib/{name}.py", f"{name}/src/{name}.py")
             try:
                 os.mkdir(f"{name}/{name}")
-            except:
+            except OSError:
                 pass
             shutil.copy(f"{CPYTHON_SRC}/Lib/{name}.py", f"{name}/{name}/__init__.py")
         if has_dir:
             shutil.copytree(f"{CPYTHON_SRC}/Lib/{name}", f"{name}/{name}")
-        shutil.copy(
-            f"{CPYTHON_SRC}/Lib/test/test_{name}.py", f"{name}/tests/test_{name}.py"
-        )
+        if name != "chunk":
+            shutil.copy(
+                f"{CPYTHON_SRC}/Lib/test/test_{name}.py", f"{name}/tests/test_{name}.py"
+            )
         shutil.copy(f"{CPYTHON_SRC}/Doc/library/{name}.rst", f"{name}/Doc/{name}.rst")
 
         for src, dst in ADDITIONAL_RESOURCES.get(name, []):
@@ -130,11 +131,16 @@ def run_test(name, version):
 
     minor_version = LAST_RELEASES[version]
 
-    lib_path = f"{PYENV_ROOT}/versions/{minor_version}/lib/python{version}/{name}.py"
+    lib_path = f"{PYENV_ROOT}/versions/{minor_version}/lib/python{version}/{name}"
+    if not os.path.exists(lib_path):
+        lib_path += ".py"
 
     cwd = os.getcwd()
     try:
-        os.remove(lib_path)
+        if lib_path.endswith(".py"):
+            os.remove(lib_path)
+        else:
+            shutil.rmtree(lib_path)
         os.chdir(name)
         os.putenv("PYTHONPATH", f"{os.getcwd()}/src")
         r = os.system(
@@ -154,7 +160,8 @@ def build_package(name):
     cwd = os.getcwd()
     try:
         os.chdir(name)
-        os.system("python -m build")
+        r = os.system("python -m build")
+        assert r == 0, r
     finally:
         os.chdir(cwd)
 
