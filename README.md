@@ -4,7 +4,7 @@ Python is moving forward! Python finally started to remove dead batteries.
 For more information, see [PEP 594](https://peps.python.org/pep-0594/).
 
 If your project depends on a module that has been removed from the standard,
-here is the redistribution of the dead batteries.
+here is the redistribution of the dead batteries in pure Python.
 
 ```shell
 pip install standard-{name}  # Don't forget to add `standard-` prefix!
