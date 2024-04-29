@@ -4,7 +4,7 @@ version = "3.11.9"
 description = "Standard library smtpd redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [
-    { name = "Python Devleopers", email = "python-deadlib@youknowone.org" }
+    { name = "Python Developers", email = "python-deadlib@youknowone.org" }
 ]
 readme = "README.rst"
 license = {name = "PSF", file = "LICENSE"}

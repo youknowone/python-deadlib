@@ -4,7 +4,7 @@ version = "{version}"
 description = "The removed dead batteries"
 keywords = ["stdlib"]
 authors = [
-    { name = "Python Devleopers", email = "python-dead-batteries@youknowone.org" }
+    { name = "Python Developers", email = "python-dead-batteries@youknowone.org" }
 ]
 readme = "README.md"
 license = {text = "PSF", file = "LICENSE"}
