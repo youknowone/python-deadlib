@@ -1,0 +1,25 @@
+[project]
+name = "standard-distutils"
+version = "3.7.17"
+description = "Standard library distutils redistribution. \"dead battery\"."
+keywords = ["stdlib"]
+authors = [
+    { name = "Python Developers", email = "python-deadlib@youknowone.org" }
+]
+readme = "README.rst"
+license = {name = "PSF", file = "LICENSE"}
+classifiers = [
+    "License :: OSI Approved :: Python Software Foundation License",
+    "Topic :: Software Development :: Libraries",
+    "Programming Language :: Python :: 3",
+]
+
+[tool.setuptools.packages]
+find = {include = ["distutils*"]}
+
+[project.urls]
+"Homepage" = "https://github.com/youknowone/python-deadlib"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
