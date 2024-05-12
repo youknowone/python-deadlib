@@ -193,5 +193,6 @@ if __name__ == "__main__":
                 raise
     else:
         action(module_name, version)
-        run_test(module_name, version)
-        build_package(module_name)
+        if version not in ["init", "delete"]:
+            run_test(module_name, version)
+            build_package(module_name)
