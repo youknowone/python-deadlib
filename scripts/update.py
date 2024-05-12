@@ -12,6 +12,7 @@ ALL_NAMES = [
     "cgitb",
     "chunk",
     "crypt",
+    "distutils",  # removed in 3.10
     "imghdr",
     "mailcap",
     # "msilib",  # cmodule _msi
