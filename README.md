@@ -1,7 +1,7 @@
 # Python dead batteries redistribution
 
 Python is moving forward! Python finally started to remove dead batteries.
-For more information, see [PEP 594](https://peps.python.org/pep-0594/).
+For more information, see [PEP 594](https://peps.python.org/pep-0594/) and [PEP 632](https://peps.python.org/pep-0632/).
 
 If your project depends on a module that has been removed from the standard,
 here is the redistribution of the dead batteries in pure Python.
@@ -18,6 +18,7 @@ pip install standard-uu  # e.g. `uu` can be installed by standard-uu
 - [cgitb](https://pypi.org/project/standard-cgitb/)
 - [chunk](https://pypi.org/project/standard-chunk/)
 - [crypt](https://pypi.org/project/standard-crypt/)
+- [distutils](https://pypi.org/project/standard-distutils/)
 - [imghdr](https://pypi.org/project/standard-imghdr/)
 - [mailcap](https://pypi.org/project/standard-mailcap/)
 - [nntplib](https://pypi.org/project/standard-nntplib/)
