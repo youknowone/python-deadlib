@@ -135,8 +135,8 @@ def run_test(name, version):
     PYENV_ROOT = os.environ["PYENV_ROOT"]
 
     minor_version = LAST_RELEASES[version]
-
-    lib_path = f"{PYENV_ROOT}/versions/{minor_version}/lib/python{version}/{name}"
+    python_dir = f"{PYENV_ROOT}/versions/{minor_version}"
+    lib_path = f"{python_dir}/lib/python{version}/{name}"
     if not os.path.exists(lib_path):
         lib_path += ".py"
 
@@ -150,7 +150,11 @@ def run_test(name, version):
         os.chdir(name)
         os.putenv("PYTHONPATH", f"{os.getcwd()}/src")
         r = os.system(
-            f"{PYENV_ROOT}/versions/{minor_version}/bin/python -m unittest tests/test_{name}.py"
+            f"{python_dir}/bin/python -m pip install --root-user-action=ignore ."
+        )
+        assert r == 0, r
+        r = os.system(
+            f"{python_dir}/bin/python -m unittest tests/test_{name}.py"
         )
         assert r == 0, r
     finally:
