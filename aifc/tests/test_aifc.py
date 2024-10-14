@@ -152,7 +152,7 @@ class AifcMiscTest(unittest.TestCase):
     def test_skipunknown(self):
         #Issue 2245
         #This file contains chunk types aifc doesn't recognize.
-        f = aifc.open(findfile('Sine-1000Hz-300ms.aif'))
+        f = aifc.open(findfile('Sine-1000Hz-300ms.aif', subdir='audiodata'))
         f.close()
 
     def test_close_opened_files_on_error(self):
