@@ -254,9 +254,7 @@ def _write_float(f, x):
     _write_ulong(f, himant)
     _write_ulong(f, lomant)
 
-with warnings.catch_warnings():
-    warnings.simplefilter("ignore", DeprecationWarning)
-    from chunk import Chunk
+from chunkmuncher.chunk import Chunk
 from collections import namedtuple
 
 _aifc_params = namedtuple('_aifc_params',
