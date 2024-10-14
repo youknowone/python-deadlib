@@ -141,7 +141,6 @@ import warnings
 __all__ = ["Error", "open"]
 
 
-warnings._deprecated(__name__, remove=(3, 13))
 
 
 class Error(Exception):
