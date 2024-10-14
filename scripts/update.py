@@ -142,10 +142,11 @@ def run_test(name, version):
 
     cwd = os.getcwd()
     try:
-        if lib_path.endswith(".py"):
-            os.remove(lib_path)
-        else:
-            shutil.rmtree(lib_path)
+        if os.path.isfile(lib_path):
+            if lib_path.endswith(".py"):
+                os.remove(lib_path)
+            else:
+                shutil.rmtree(lib_path)
         os.chdir(name)
         os.putenv("PYTHONPATH", f"{os.getcwd()}/src")
         r = os.system(
