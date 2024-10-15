@@ -56,3 +56,20 @@ There could be one more step - though this is a rejected idea in PEP 594. If we 
 I'm not sure if this is the best way, but it will give developers the option to choose whether or not to do.
 
 I really hope that finally Python developers could decide to remove even more batteries in future.
+
+
+## Tests
+
+The tests depend upon having [pyenv](https://github.com/pyenv/pyenv) installed and can be running with the command:
+`python scripts/run_test.py ${MODULE_NAME} ${PYTHON_VERSION}`
+Where:
+
+* MODULE_NAME is the name of directory in this repository, or `ALL` to run tests for all modules
+* PYTHON_VERSION is the major and minor number of a valid python version, seperated by a `.`
+
+For example:
+`python scripts/run_test.py aifc 3.13`
+
+
+Alternatively, if you prefer to run your tests inside a docker container, you can run:
+`docker build . -f scripts/Dockerfile -t test && docker run -e MODULE_NAME=aifc -e PYTHON_VERSION=3.12 -t test`
