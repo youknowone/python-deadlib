@@ -34,7 +34,8 @@ import traceback
 import warnings
 from html import escape as html_escape
 
-warnings._deprecated(__name__, remove=(3, 13))
+# python-deadlib: Remove deprecation warning
+# warnings._deprecated(__name__, remove=(3, 13))
 
 
 def reset():

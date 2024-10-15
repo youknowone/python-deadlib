@@ -35,7 +35,8 @@ import os
 import sys
 import warnings
 
-warnings._deprecated(__name__, remove=(3, 13))
+# python-deadlib: Remove deprecation warning
+# warnings._deprecated(__name__, remove=(3, 13))
 
 __all__ = ["Error", "encode", "decode"]
 

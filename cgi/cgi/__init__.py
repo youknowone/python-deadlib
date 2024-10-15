@@ -54,7 +54,9 @@ __all__ = ["MiniFieldStorage", "FieldStorage", "parse", "parse_multipart",
            "print_environ_usage"]
 
 
-warnings._deprecated(__name__, remove=(3,13))
+# python-deadlib: Remove deprecation warning
+# # python-deadlib: Remove deprecation warning
+# warnings._deprecated(__name__, remove=(3, 13))
 
 # Logging support
 # ===============
