@@ -141,7 +141,8 @@ import warnings
 __all__ = ["Error", "open"]
 
 
-
+# python-deadlib: Remove deprecation warning
+# warnings._deprecated(__name__, remove=(3, 13))
 
 class Error(Exception):
     pass
