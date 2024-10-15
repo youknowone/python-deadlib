@@ -33,12 +33,14 @@ pip install standard-uu  # e.g. `uu` can be installed by standard-uu
 
 ## Contribution guideline
 
-Please do *NOT* submit any new features or any compatibility work.
-This repository is archiving the old standard library installable via pip.
-If you find any broken packages or missing features, please look for other projects that are actively developing alternative packages or fork this project.
+Please do **NOT** submit any new features or anything beyond minimal compatibility work.
+This repository is intended to archive the old standard library installable via pip, with *very minimal* compatibility support.
 
-Please report any bug or submit patches if you encounter any issues with package generation.
-Patches related to files under `template` and `scripts` are welcome!
+If you find any missing features or broken packages due to changes in Python, rather than incomplete packaging,
+please seek out other projects that are actively developing alternative packages or consider forking this project.
+
+Feel free to report any bugs or submit patches if you encounter issues with package generation.
+Exception: Feature patches related to files under `template` and `scripts` are welcome!
 
 ## To Python developers
 
