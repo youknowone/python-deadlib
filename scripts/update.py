@@ -40,11 +40,12 @@ LAST_RELEASES = {
     "3.5": "3.5.10",
     "3.6": "3.6.15",
     "3.7": "3.7.17",
-    "3.8": "3.8.19",
-    "3.9": "3.9.19",
-    "3.10": "3.10.14",
-    "3.11": "3.11.9",
-    "3.12": "3.12.2",
+    "3.8": "3.8.20",
+    "3.9": "3.9.20",
+    "3.10": "3.10.15",
+    "3.11": "3.11.10",
+    "3.12": "3.12.7",
+    "3.13": "3.13.0",
 }
 
 
@@ -134,21 +135,26 @@ def run_test(name, version):
     PYENV_ROOT = os.environ["PYENV_ROOT"]
 
     minor_version = LAST_RELEASES[version]
-
-    lib_path = f"{PYENV_ROOT}/versions/{minor_version}/lib/python{version}/{name}"
+    python_dir = f"{PYENV_ROOT}/versions/{minor_version}"
+    lib_path = f"{python_dir}/lib/python{version}/{name}"
     if not os.path.exists(lib_path):
         lib_path += ".py"
 
     cwd = os.getcwd()
     try:
-        if lib_path.endswith(".py"):
-            os.remove(lib_path)
-        else:
-            shutil.rmtree(lib_path)
+        if os.path.isfile(lib_path):
+            if lib_path.endswith(".py"):
+                os.remove(lib_path)
+            else:
+                shutil.rmtree(lib_path)
         os.chdir(name)
         os.putenv("PYTHONPATH", f"{os.getcwd()}/src")
         r = os.system(
-            f"{PYENV_ROOT}/versions/{minor_version}/bin/python -m unittest tests/test_{name}.py"
+            f"{python_dir}/bin/python -m pip install --root-user-action=ignore ."
+        )
+        assert r == 0, r
+        r = os.system(
+            f"{python_dir}/bin/python -m unittest tests/test_{name}.py"
         )
         assert r == 0, r
     finally:
