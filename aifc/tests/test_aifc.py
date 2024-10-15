@@ -3,7 +3,7 @@ from test.support.os_helper import TESTFN, unlink
 from test.support.warnings_helper import check_no_resource_warning, import_deprecated
 import unittest
 from unittest import mock
-from test import audiotests
+from tests import audiotests
 import io
 import sys
 import struct
@@ -152,11 +152,11 @@ class AifcMiscTest(unittest.TestCase):
     def test_skipunknown(self):
         #Issue 2245
         #This file contains chunk types aifc doesn't recognize.
-        f = aifc.open(findfile('Sine-1000Hz-300ms.aif', subdir='audiodata'))
+        f = aifc.open(findfile('Sine-1000Hz-300ms.aif', subdir='tests/audiodata'))
         f.close()
 
     def test_close_opened_files_on_error(self):
-        non_aifc_file = findfile('pluck-pcm8.wav', subdir='audiodata')
+        non_aifc_file = findfile('pluck-pcm8.wav', subdir='tests/audiodata')
         with check_no_resource_warning(self):
             with self.assertRaises(aifc.Error):
                 # Try opening a non-AIFC file, with the expectation that
