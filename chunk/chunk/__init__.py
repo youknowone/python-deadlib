@@ -50,7 +50,8 @@ default is 1, i.e. aligned.
 
 import warnings
 
-warnings._deprecated(__name__, remove=(3, 13))
+# python-deadlib: Remove deprecation warning
+# warnings._deprecated(__name__, remove=(3, 13))
 
 class Chunk:
     def __init__(self, file, align=True, bigendian=True, inclheader=False):

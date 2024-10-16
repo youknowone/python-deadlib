@@ -86,7 +86,8 @@ __all__ = ["NNTP",
            "decode_header",
            ]
 
-warnings._deprecated(__name__, remove=(3, 13))
+# python-deadlib: Remove deprecation warning
+# warnings._deprecated(__name__, remove=(3, 13))
 
 # maximal line length when calling readline(). This is to prevent
 # reading arbitrary length lines. RFC 3977 limits NNTP line length to

@@ -65,7 +65,8 @@ import warnings
 # (quote used to be an undocumented but used function in pipes)
 from shlex import quote
 
-warnings._deprecated(__name__, remove=(3, 13))
+# python-deadlib: Remove deprecation warning
+# warnings._deprecated(__name__, remove=(3, 13))
 
 __all__ = ["Template"]
 
