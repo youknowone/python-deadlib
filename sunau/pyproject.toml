@@ -13,6 +13,9 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
     "Programming Language :: Python :: 3",
 ]
+dependencies = [
+    "audioop-lts; python_version >= '3.13'", # audioop uses same namespace as python core module, so only install it on versions where it's not included
+]
 
 [tool.setuptools.packages]
 find = {include = ["sunau*"]}

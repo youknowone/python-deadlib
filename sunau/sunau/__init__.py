@@ -106,7 +106,8 @@ is destroyed.
 from collections import namedtuple
 import warnings
 
-warnings._deprecated(__name__, remove=(3, 13))
+# python-deadlib: Remove deprecation warning
+#warnings._deprecated(__name__, remove=(3, 13))
 
 
 _sunau_params = namedtuple('_sunau_params',
