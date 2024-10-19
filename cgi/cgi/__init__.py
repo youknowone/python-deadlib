@@ -55,8 +55,8 @@ __all__ = ["MiniFieldStorage", "FieldStorage", "parse", "parse_multipart",
 
 
 # python-deadlib: Remove deprecation warning
-# # python-deadlib: Remove deprecation warning
-# warnings._deprecated(__name__, remove=(3, 13))
+# # python-deadlib: Replace deprecation warning not to raise exception
+warnings.warn(f"{__name__} was removed in Python 3.13. Please be aware that you are currently NOT using standard '{__name__}', but instead a separately installed 'standard-{__name__}'.", DeprecationWarning)
 
 # Logging support
 # ===============
