@@ -141,8 +141,8 @@ import warnings
 __all__ = ["Error", "open"]
 
 
-warnings._deprecated(__name__, remove=(3, 13))
-
+# python-deadlib: Replace deprecation warning not to raise exception
+warnings.warn(f"{__name__} was removed in Python 3.13. Please be aware that you are currently NOT using standard '{__name__}', but instead a separately installed 'standard-{__name__}'.", DeprecationWarning)
 
 class Error(Exception):
     pass
@@ -255,9 +255,11 @@ def _write_float(f, x):
     _write_ulong(f, himant)
     _write_ulong(f, lomant)
 
-with warnings.catch_warnings():
-    warnings.simplefilter("ignore", DeprecationWarning)
-    from chunk import Chunk
+# python-deadlib: replace removed library chunk with third party library
+# with warnings.catch_warnings():
+#     warnings.simplefilter("ignore", DeprecationWarning)
+#     from chunk import Chunk
+from chunkmuncher.chunk import Chunk
 from collections import namedtuple
 
 _aifc_params = namedtuple('_aifc_params',
