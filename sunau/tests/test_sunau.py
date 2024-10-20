@@ -1,5 +1,5 @@
 import unittest
-from test import audiotests
+from tests import audiotests
 import io
 import struct
 import sys
