@@ -7,10 +7,12 @@ import re
 __all__ = ["getcaps","findmatch"]
 
 
-_DEPRECATION_MSG = ('The {name} module is deprecated and will be removed in '
-                    'Python {remove}. See the mimetypes module for an '
-                    'alternative.')
-warnings._deprecated(__name__, _DEPRECATION_MSG, remove=(3, 13))
+# python-deadlib: Replace deprecation warning not to raise exception
+_DEPRECATION_MSG = ('The {__name__} module is deprecated and will be removed in '
+                    'Python 3.13. See the mimetypes module for an '
+                    'alternative.'
+                    'Please be aware that you are currently NOT using standard "{__name__}", but instead a separately installed "standard-{__name__}".')
+warnings.warn(_DEPRECATION_MSG, DeprecationWarning)
 
 
 def lineno_sort_key(entry):
