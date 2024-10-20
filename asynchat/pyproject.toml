@@ -13,6 +13,9 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
     "Programming Language :: Python :: 3",
 ]
+dependencies = [
+    "standard-asyncore; python_version >= '3.12'",
+]
 
 [tool.setuptools.packages]
 find = {include = ["asynchat*"]}
