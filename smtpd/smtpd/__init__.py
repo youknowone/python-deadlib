@@ -84,11 +84,11 @@ __all__ = [
     "SMTPChannel", "SMTPServer", "DebuggingServer", "PureProxy",
 ]
 
-_DEPRECATION_MSG = ('The {__name__} module is deprecated and '
-                    'be removed in Python 3.12.  Please see aiosmtpd '
+_DEPRECATION_MSG = ('The {__name__} module was '
+                    ' removed in Python 3.12.  Please see aiosmtpd '
                     '(https://aiosmtpd.readthedocs.io/) for the recommended '
                     'replacement. '
-                    'Please be aware that you are currently NOT using standard "{__name__}", but instead a separately installed "standard-{__name__}".'))
+                    'Please be aware that you are currently NOT using standard "{__name__}", but instead a separately installed "standard-{__name__}".')
 warn(_DEPRECATION_MSG, DeprecationWarning)
 
 

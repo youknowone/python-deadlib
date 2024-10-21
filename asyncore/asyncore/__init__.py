@@ -58,7 +58,7 @@ from errno import EALREADY, EINPROGRESS, EWOULDBLOCK, ECONNRESET, EINVAL, \
      errorcode
 
 # python-deadlib: Replace deprecation warning not to raise exception
-_DEPRECATION_MSG = (f'The {__name__} module is deprecated and be removed in '
+_DEPRECATION_MSG = (f'The {__name__} module was removed in '
                     'Python 3.12. The recommended replacement is asyncio. '
                     'Please be aware that you are currently NOT using standard "{__name__}", but instead a separately installed "standard-{__name__}".')
 warnings.warn(_DEPRECATION_MSG, DeprecationWarning)
