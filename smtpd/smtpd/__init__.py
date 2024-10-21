@@ -85,7 +85,7 @@ __all__ = [
 ]
 
 _DEPRECATION_MSG = ('The {__name__} module was '
-                    ' removed in Python 3.12.  Please see aiosmtpd '
+                    'removed in Python 3.12.  Please see aiosmtpd '
                     '(https://aiosmtpd.readthedocs.io/) for the recommended '
                     'replacement. '
                     'Please be aware that you are currently NOT using standard "{__name__}", but instead a separately installed "standard-{__name__}".')
