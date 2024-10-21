@@ -13,6 +13,9 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
     "Programming Language :: Python :: 3",
 ]
+dependencies = [
+    "standard-aifc; python_version >= '3.13'",
+]
 
 [tool.setuptools.packages]
 find = {include = ["sndhdr*"]}
