@@ -36,7 +36,7 @@ class UnseekableIO(io.FileIO):
 class TestImghdr(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.testfile = findfile('python.png', subdir='imghdrdata')
+        cls.testfile = findfile('python.png', subdir='tests/imghdrdata')
         with open(cls.testfile, 'rb') as stream:
             cls.testdata = stream.read()
 
@@ -45,7 +45,7 @@ class TestImghdr(unittest.TestCase):
 
     def test_data(self):
         for filename, expected in TEST_FILES:
-            filename = findfile(filename, subdir='imghdrdata')
+            filename = findfile(filename, subdir='tests/imghdrdata')
             self.assertEqual(imghdr.what(filename), expected)
             with open(filename, 'rb') as stream:
                 self.assertEqual(imghdr.what(stream), expected)
@@ -57,7 +57,7 @@ class TestImghdr(unittest.TestCase):
     def test_pathlike_filename(self):
         for filename, expected in TEST_FILES:
             with self.subTest(filename=filename):
-                filename = findfile(filename, subdir='imghdrdata')
+                filename = findfile(filename, subdir='tests/imghdrdata')
                 self.assertEqual(imghdr.what(pathlib.Path(filename)), expected)
 
     def test_register_test(self):
@@ -104,7 +104,7 @@ class TestImghdr(unittest.TestCase):
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", BytesWarning)
             for filename, _ in TEST_FILES:
-                filename = findfile(filename, subdir='imghdrdata')
+                filename = findfile(filename, subdir='tests/imghdrdata')
                 with open(filename, 'rb') as stream:
                     data = stream.read().decode('latin1')
                 with self.assertRaises(TypeError):
