@@ -11,7 +11,7 @@ mailcap = warnings_helper.import_deprecated('mailcap')
 
 
 # Location of mailcap file
-MAILCAPFILE = test.support.findfile("mailcap.txt")
+MAILCAPFILE = test.support.findfile("tests/mailcap.txt")
 
 # Dict to act as mock mailcap entry for this test
 # The keys and values should match the contents of MAILCAPFILE
