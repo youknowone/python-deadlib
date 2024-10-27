@@ -62,7 +62,7 @@ warnings.warn(
     f"{__name__} was removed in Python 3.12. The recommended replacement is asyncio. "
     f"Please be aware that you are currently NOT using standard '{__name__}', "
     f"but instead a separately installed 'standard-{__name__}'.",
-    DeprecationWarning,
+    DeprecationWarning, stacklevel=2
 )
 
 

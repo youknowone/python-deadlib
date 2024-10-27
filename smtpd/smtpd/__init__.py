@@ -90,7 +90,7 @@ warn(
     "aiosmtpd (https://aiosmtpd.readthedocs.io/) for the recommended replacement."
     f"Please be aware that you are currently NOT using standard '{__name__}', "
     f"but instead a separately installed 'standard-{__name__}'.",
-    DeprecationWarning,
+    DeprecationWarning, stacklevel=2
 )
 
 
