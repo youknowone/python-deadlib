@@ -51,10 +51,12 @@ from collections import deque
 import warnings
 
 # python-deadlib: Replace deprecation warning not to raise exception
-_DEPRECATION_MSG = (f'The {__name__} module was removed in '
-                    'Python 3.12. The recommended replacement is asyncio. '
-                    'Please be aware that you are currently NOT using standard "{__name__}", but instead a separately installed "standard-{__name__}".')
-warnings.warn(_DEPRECATION_MSG, DeprecationWarning)
+warnings.warn(
+    f"{__name__} was removed in Python 3.12. The recommended replacement is asyncio. "
+    f"Please be aware that you are currently NOT using standard '{__name__}', "
+    f"but instead a separately installed 'standard-{__name__}'.",
+    DeprecationWarning, stacklevel=2
+)
 
 
 class async_chat(asyncore.dispatcher):

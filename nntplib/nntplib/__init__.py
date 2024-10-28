@@ -87,7 +87,12 @@ __all__ = ["NNTP",
            ]
 
 # python-deadlib: Replace deprecation warning not to raise exception
-warnings.warn(f"{__name__} was removed in Python 3.13. Please be aware that you are currently NOT using standard '{__name__}', but instead a separately installed 'standard-{__name__}'.", DeprecationWarning)
+warnings.warn(
+    f"{__name__} was removed in Python 3.13. "
+    f"Please be aware that you are currently NOT using standard '{__name__}', "
+    f"but instead a separately installed 'standard-{__name__}'.",
+    DeprecationWarning, stacklevel=2
+)
 
 # maximal line length when calling readline(). This is to prevent
 # reading arbitrary length lines. RFC 3977 limits NNTP line length to

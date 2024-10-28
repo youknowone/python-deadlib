@@ -8,11 +8,12 @@ __all__ = ["getcaps","findmatch"]
 
 
 # python-deadlib: Replace deprecation warning not to raise exception
-_DEPRECATION_MSG = ('The {__name__} module was removed in '
-                    'Python 3.13. See the mimetypes module for an '
-                    'alternative.'
-                    'Please be aware that you are currently NOT using standard "{__name__}", but instead a separately installed "standard-{__name__}".')
-warnings.warn(_DEPRECATION_MSG, DeprecationWarning)
+warnings.warn(
+    f"{__name__} was removed in Python 3.13. See the mimetypes module for an alternative. "
+    f"Please be aware that you are currently NOT using standard '{__name__}', "
+    f"but instead a separately installed 'standard-{__name__}'.",
+    DeprecationWarning, stacklevel=2
+)
 
 
 def lineno_sort_key(entry):
