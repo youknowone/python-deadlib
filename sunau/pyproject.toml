@@ -7,7 +7,7 @@ authors = [
     { name = "Python Developers", email = "python-deadlib@youknowone.org" }
 ]
 readme = "README.rst"
-license = {name = "PSF", file = "LICENSE"}
+license = { text = "PSF-2.0" }
 classifiers = [
     "License :: OSI Approved :: Python Software Foundation License",
     "Topic :: Software Development :: Libraries",
@@ -24,5 +24,5 @@ find = {include = ["sunau*"]}
 "Homepage" = "https://github.com/youknowone/python-deadlib"
 
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=75.0"]
 build-backend = "setuptools.build_meta"
