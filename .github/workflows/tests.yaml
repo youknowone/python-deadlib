@@ -24,7 +24,7 @@ jobs:
         run: |
           FOLDERS=$(find . -maxdepth 2 -type d -name 'tests' \
             | cut -d "/" -f2 | sort -u \
-            | jq -Rsc 'split("\n") | map( {folder: select(length > 0) })')
+            | jq -Rsc 'split("\n") | map( select(length > 0) )')
           echo "folders: ${FOLDERS}"
           echo "folders=${FOLDERS}" >> $GITHUB_OUTPUT
 
@@ -35,14 +35,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include: ${{ fromJson(needs.generate-test-matrix.outputs.folders) }}
+        folder: ${{ fromJson(needs.generate-test-matrix.outputs.folders) }}
+        version: ["3.11", "3.12", "3.13"]
     steps:
       - name: Check out code from Github
         uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: ${{ matrix.version }}
           check-latest: true
       - name: Run tests
         run: |
