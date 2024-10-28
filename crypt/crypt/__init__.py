@@ -8,7 +8,11 @@ except ModuleNotFoundError:
     if _sys.platform == 'win32':
         raise ImportError("The crypt module is not supported on Windows")
     else:
-        raise ImportError("The required _crypt module was not built as part of CPython")
+        # python-deadlib: Add a note for deprecated-crypt-alternative
+        # raise ImportError("The required _crypt module was not built as part of CPython")
+        raise ImportError(
+            "The required _crypt module is no longer a part of CPython. "
+            "`deprecated-crypt-alternative` can be used as a replacement.")
 
 import errno
 import string as _string

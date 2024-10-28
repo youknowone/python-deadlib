@@ -1,0 +1,16 @@
+[package]
+name = "deprecated-crypt-alternative"
+description = "Python deprecated library `_crypt` replacement."
+edition = "2021"
+version = "0.1.1"
+authors = ["Jeong, YunWon <python-deadlib@youknowone.org>"]
+repository = "https://github.com/youknowone/python-deadlib"
+license = "LGPL-2.1"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "_crypt"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.22.0", features = ["abi3-py39"] }
