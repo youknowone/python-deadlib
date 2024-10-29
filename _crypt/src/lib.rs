@@ -1,5 +1,10 @@
+use pyo3::{
+    exceptions::PyValueError,
+    ffi::{PyErr_SetFromErrno, PyExc_OSError},
+    prelude::*,
+    types::PyString,
+};
 use std::ffi::CStr;
-use pyo3::{prelude::*, ffi::{PyExc_OSError, PyErr_SetFromErrno}, types::PyString, exceptions::PyValueError};
 
 // Future Rust versions will support `unsafe extern`
 // unsafe
@@ -23,9 +28,13 @@ fn crypt(word: &Bound<PyString>, salt: &Bound<PyString>) -> PyResult<String> {
         if result.is_null() {
             let err_ptr = PyErr_SetFromErrno(PyExc_OSError);
             let py = Python::assume_gil_acquired();
-            return Err(PyErr::from_value_bound(Bound::from_owned_ptr_or_err(py, err_ptr)?));
+            return Err(PyErr::from_value_bound(Bound::from_owned_ptr_or_err(
+                py, err_ptr,
+            )?));
         }
-        CStr::from_ptr(result as *const _).to_str().expect("OS crypt returns weird values")
+        CStr::from_ptr(result as *const _)
+            .to_str()
+            .expect("OS crypt returns weird values")
     };
     Ok(crypt_result.to_string())
 }
