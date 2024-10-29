@@ -37,6 +37,11 @@ jobs:
             target: ppc64le
     steps:
       - uses: actions/checkout@v4
+      - name: prepare Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Run Rust tests
+        working-directory: ./_crypt
+        run: cargo test --verbose
       - uses: actions/setup-python@v5
         with:
           python-version: 3.13
@@ -76,6 +81,7 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           working-directory: ./_crypt
+          rust-toolchain: 1.82.0
           target: ${{ matrix.platform.target }}
           args: --release --out dist --find-interpreter
           sccache: 'true'
@@ -97,6 +103,11 @@ jobs:
             target: aarch64
     steps:
       - uses: actions/checkout@v4
+      - name: prepare Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Run Rust tests
+        working-directory: ./_crypt
+        run: cargo test --verbose
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
