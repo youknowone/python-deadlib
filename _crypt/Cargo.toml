@@ -2,7 +2,7 @@
 name = "deprecated-crypt-alternative"
 description = "Python deprecated library `_crypt` replacement."
 edition = "2021"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Jeong, YunWon <python-deadlib@youknowone.org>"]
 repository = "https://github.com/youknowone/python-deadlib"
 license = "LGPL-2.1"
