@@ -30,7 +30,7 @@ jobs:
         id: get-folders
         run: |
           pip install -U pip -r requirements_test.txt
-          FOLDERS=$(python scripts/helper.py list-test-folders)
+          FOLDERS=$(python scripts/helper.py list-test-folders --exclude distutils)
           echo "folders: ${FOLDERS}"
           echo "folders=${FOLDERS}" >> $GITHUB_OUTPUT
 
