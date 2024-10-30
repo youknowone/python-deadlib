@@ -14,7 +14,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "chunkmuncher>=0.0.2", # chunkmuncher sits of different namespace to python core chunk module, so can install it on all versions
+    "standard-chunk; python_version >= '3.13'", # chunk uses same namespace as python core module, so only install it on versions where it's not included
     "audioop-lts; python_version >= '3.13'", # audioop uses same namespace as python core module, so only install it on versions where it's not included
 ]
 
