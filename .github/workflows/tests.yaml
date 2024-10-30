@@ -21,12 +21,16 @@ jobs:
     steps:
       - name: Check out code from Github
         uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          check-latest: true
       - name: Get folders with tests
         id: get-folders
         run: |
-          FOLDERS=$(find . -maxdepth 2 -type d -name 'tests' \
-            | cut -d "/" -f2 | sort -u \
-            | jq -Rsc 'split("\n") | map( select(length > 0) )')
+          pip install -U pip -r requirements_test.txt
+          FOLDERS=$(python scripts/helper.py list-test-folders)
           echo "folders: ${FOLDERS}"
           echo "folders=${FOLDERS}" >> $GITHUB_OUTPUT
 
@@ -49,8 +53,7 @@ jobs:
           check-latest: true
       - name: Run tests
         run: |
+          pip install -U pip -r requirements_test.txt
+          python scripts/helper.py install-local-requirements ${{ matrix.folder }}
           cd ${{ matrix.folder }}
-          pip install packaging
-          python ../scripts/helper.py | xargs -I % pip install "../%"
-          pip install .
           python -m unittest
