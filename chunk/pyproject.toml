@@ -1,6 +1,6 @@
 [project]
 name = "standard-chunk"
-version = "3.12.2"
+version = "3.13.0"
 description = "Standard library chunk redistribution. \"dead battery\"."
 keywords = ["stdlib"]
 authors = [
