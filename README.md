@@ -18,7 +18,7 @@ pip install standard-uu  # e.g. `uu` can be installed by standard-uu
 - [cgitb](https://pypi.org/project/standard-cgitb/)
 - [chunk](https://pypi.org/project/standard-chunk/)
 - [crypt](https://pypi.org/project/standard-crypt/)
-- ~~[distutils](https://pypi.org/project/standard-distutils/)~~
+- ~~[distutils](https://pypi.org/project/standard-distutils/)~~: Not working on Python 3.13
 - [imghdr](https://pypi.org/project/standard-imghdr/)
 - [mailcap](https://pypi.org/project/standard-mailcap/)
 - [nntplib](https://pypi.org/project/standard-nntplib/)
