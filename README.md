@@ -69,7 +69,7 @@ The tests depend upon having [pyenv](https://github.com/pyenv/pyenv) installed a
 Where:
 
 * _MODULE_NAME_ is the name of directory in this repository, or `ALL` to run tests for all modules
-* _PYTHON_VERSION_ is the major and minor number of a valid python version, seperated by a `.`
+* _PYTHON_VERSION_ is the major and minor number of a valid python version, separated by a `.`
 
 For example: `python scripts/run_test.py aifc 3.13`
 
