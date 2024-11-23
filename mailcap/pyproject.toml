@@ -15,7 +15,10 @@ classifiers = [
 ]
 
 [tool.setuptools.packages]
-find = {include = ["mailcap*"]}
+find = {include = ["mailcap*", "tests*"]}
+
+[tool.setuptools.package-data]
+tests = ["*.txt"]
 
 [project.urls]
 "Homepage" = "https://github.com/youknowone/python-deadlib"
