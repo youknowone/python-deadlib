@@ -21,5 +21,5 @@ find = {include = ["asyncore*"]}
 "Homepage" = "https://github.com/youknowone/python-deadlib"
 
 [build-system]
-requires = ["setuptools>=75.0"]
+requires = ["setuptools>=69.0"]
 build-backend = "setuptools.build_meta"
