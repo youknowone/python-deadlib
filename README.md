@@ -54,7 +54,7 @@ I know it might sound like more maintenance work, but it's not as bad as it seem
 
 It's not easy to tell users "We will deprecate this library. Please fork or go to find another library."  I know it's not the most pleasant thing to do. Preparing a backup will be a bit more nice. Now telling "We will remove this library from standard library, but you can install it via PIP!" will be a lot easier. The only additional burden for users will be the Internet with SSL.
 
-There could be one more step - though this is a rejected idea in PEP 594. If we can get users to install the old standard packages via PIP, we can also get them to install less core-language libraries as separatedly distributing first-party libraries. Libraries that have users but aren't necessarily standard libraries can be turned into non-standard libraries.
+There could be one more step - though this is a rejected idea in PEP 594. If we can get users to install the old standard packages via PIP, we can also get them to install less core-language libraries as separately distributing first-party libraries. Libraries that have users but aren't necessarily standard libraries can be turned into non-standard libraries.
 I'm not sure if this is the best way, but it will give developers the option to choose whether or not to do.
 
 I really hope that finally Python developers could decide to remove even more batteries in future.
